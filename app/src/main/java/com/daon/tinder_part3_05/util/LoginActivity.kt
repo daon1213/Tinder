@@ -1,13 +1,13 @@
-package com.daon.tinder_part3_05
+package com.daon.tinder_part3_05.util
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.daon.tinder_part3_05.R
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlin.math.sign
 
 class LoginActivity: AppCompatActivity() {
 
@@ -40,7 +39,7 @@ class LoginActivity: AppCompatActivity() {
         // option + command + m
         initLoginButton()
         initSignUpButton()
-        initFaceBookLoginButton()
+//        initFaceBookLoginButton()
         initEmailAndPasswordEditText()
 
         setButtonEnabled(false)
@@ -86,33 +85,33 @@ class LoginActivity: AppCompatActivity() {
         }
     }
 
-    private fun initFaceBookLoginButton() {
-        val facebookLoginButton = findViewById<LoginButton>(R.id.facebookLoginButton)
-        // facebook 으로부터 받아올 정보를 추가
-        facebookLoginButton.setPermissions("email","public_profile")
-        facebookLoginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult>  {
-            override fun onSuccess(result: LoginResult) {
-                // 로그인 성공
-                val credential = FacebookAuthProvider.getCredential(result.accessToken.token)
-                // 이메일과 다른게 해당 token 의 회원정보가 없다면 자동으로 회원가입을 하고, 로그인을 수행한다.
-                auth.signInWithCredential(credential)
-                    .addOnCompleteListener(this@LoginActivity) { task ->
-                        if (task.isSuccessful) {
-                            handleSuccessLogin()
-                        }
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this@LoginActivity, "페이스북 로그인이 실패하였습니다.", Toast.LENGTH_SHORT).show()
-                    }
-            }
-
-            override fun onCancel() {}
-
-            override fun onError(error: FacebookException?) {
-                Toast.makeText(this@LoginActivity, "페이스북 로그인이 실패하였습니다.", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
+//    private fun initFaceBookLoginButton() {
+//        val facebookLoginButton = findViewById<LoginButton>(R.id.facebookLoginButton)
+//        // facebook 으로부터 받아올 정보를 추가
+//        facebookLoginButton.setPermissions("email","public_profile")
+//        facebookLoginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult>  {
+//            override fun onSuccess(result: LoginResult) {
+//                // 로그인 성공
+//                val credential = FacebookAuthProvider.getCredential(result.accessToken.token)
+//                // 이메일과 다른게 해당 token 의 회원정보가 없다면 자동으로 회원가입을 하고, 로그인을 수행한다.
+//                auth.signInWithCredential(credential)
+//                    .addOnCompleteListener(this@LoginActivity) { task ->
+//                        if (task.isSuccessful) {
+//                            handleSuccessLogin()
+//                        }
+//                    }
+//                    .addOnFailureListener {
+//                        Toast.makeText(this@LoginActivity, "페이스북 로그인이 실패하였습니다.", Toast.LENGTH_SHORT).show()
+//                    }
+//            }
+//
+//            override fun onCancel() {}
+//
+//            override fun onError(error: FacebookException?) {
+//                Toast.makeText(this@LoginActivity, "페이스북 로그인이 실패하였습니다.", Toast.LENGTH_SHORT).show()
+//            }
+//        })
+//    }
 
     private fun initEmailAndPasswordEditText() {
         // 이메일과 비밀번호를 둘 다 입력하지 않을 경우, 로그인/회원가입 버튼 비 활성화
