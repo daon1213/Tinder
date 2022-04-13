@@ -1,11 +1,10 @@
-package com.daon.tinder_part3_05
+package com.daon.tinder_part3_05.util
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.daon.tinder_part3_05.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
