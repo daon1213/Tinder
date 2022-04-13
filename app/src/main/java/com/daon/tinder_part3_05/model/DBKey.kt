@@ -1,4 +1,4 @@
-package com.daon.tinder_part3_05
+package com.daon.tinder_part3_05.model
 
 class DBKey {
     companion object {
@@ -8,5 +8,6 @@ class DBKey {
         const val DIS_LIKE = "disLike"
         const val USER_ID = "userId"
         const val NAME = "name"
+        const val MATCH = "match"
     }
 }
