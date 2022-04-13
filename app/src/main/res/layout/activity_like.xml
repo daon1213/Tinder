@@ -4,33 +4,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.yuyakaido.android.cardstackview.CardStackView
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="매칭할 카드가 없습니다."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cardStackView"
         android:layout_width="0dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/dislikeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="20dp"/>
+
+    <Button
+        android:id="@+id/dislikeButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:text="Dislike"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/matchListButton"
+        app:layout_constraintEnd_toStartOf="@id/likeButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardStackView" />
+
+    <Button
+        android:id="@+id/likeButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="Like"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/dislikeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dislikeButton"
+        app:layout_constraintTop_toBottomOf="@id/cardStackView" />
 
     <Button
         android:id="@+id/matchListButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="매치 리스트 보기"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/signOutButton"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/signOutButton"
+        app:layout_constraintTop_toBottomOf="@id/dislikeButton"
+        android:text="매치보기"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="15dp"/>
 
     <Button
         android:id="@+id/signOutButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="로그아웃 하기"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/matchListButton"
+        android:text="로그아웃"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="15dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
