@@ -13,7 +13,7 @@
 
         android:theme="@style/Theme.Tinderpart305">
         <activity
-            android:name=".MainActivity"
+            android:name=".util.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".LikeActivity" />
-        <activity android:name=".MatchedUserActivity" />
+        <activity android:name=".util.LoginActivity" />
+        <activity android:name=".util.LikeActivity" />
+        <activity android:name=".util.MatchedUserActivity" />
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=
                 "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
